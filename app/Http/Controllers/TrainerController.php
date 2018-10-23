@@ -1,7 +1,7 @@
 <?php
 
 namespace LaraDex\Http\Controllers;
-
+use LaraDex\Trainer;
 use Illuminate\Http\Request;
 
 class TrainerController extends Controller
@@ -13,7 +13,8 @@ class TrainerController extends Controller
      */
     public function index()
     {
-        return 'Hola desde el controlador resource';
+        $trainers = Trainer::all();
+        return view('trainers.index', compact('trainers'));
     }
 
     /**
