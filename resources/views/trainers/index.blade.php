@@ -11,7 +11,7 @@
           <img class="card-img-top" src="images/{{$trainer->avatar}}" alt="">
           <div class="card-body">
             <h5 class="card-title">{{$trainer->name}}</h5>
-            <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt quas nobis nam expedita, ea eum ipsum harum repellendus deleniti quos delectus ducimus mollitia omnis, dolorum praesentium ad exercitationem hic consectetur.</p>
+            <p class="card-text">{{$trainer->descruption}}</p>
             <a href="" class="btn btn-primary">More..</a>
           </div>
         </div>
