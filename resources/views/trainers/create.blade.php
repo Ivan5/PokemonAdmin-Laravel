@@ -3,20 +3,23 @@
 @section('title','Create Trainer')
 
 @section('content')
-  <form method="POST" action="/trainers" enctype="multipart/form-data">
-    @csrf
+  {!! Form::open(['route' => 'trainers.store', 'method' => 'POST', 'files' => true]) !!}
     <div class="form-goup">
-      <label for="">Nombre</label>
-      <input type="text" class="form-control" name="name">
+      {!! Form::label('name', 'Nombre') !!}
+      {!! Form::text('name', null, ['class' => 'form-control']) !!}
+    </div>
+    <div class="form-goup">
+      {!! Form::label('slug', 'Slug') !!}
+      {!! Form::text('slug', null, ['class' => 'form-control']) !!}
     </div>
     <div class="form-goup mt-2">
-      <label for="">Avatar</label>
-      <input type="file"  name="avatar">
+      {!! Form::label('avatar', 'Avatar') !!}
+      {!! Form::file('avatar', null) !!}
     </div>
     <div class="form-goup mt-2">
-      <label for="">Description</label>
-      <textarea class="form-control" name="descruption" id="" cols="30" rows="10"></textarea>
+      {!! Form::label('descruption', 'Descripcion') !!}
+      {!! Form::textarea('descruption', null, ['class' => 'form-control']) !!}
     </div>
-    <button type="submit" class="btn btn-primary btn-block mt-3">Guardar</button>
-  </form>
+    {!! Form::submit('Guardar',['class' => 'btn btn-primary btn-block mt-3']) !!}
+  {!! Form::close() !!}
 @endsection

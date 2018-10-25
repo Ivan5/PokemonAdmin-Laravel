@@ -1,24 +1,25 @@
 @extends('layouts.app')
 
-@section('title','Edit Trainer')
+@section('title','Create Trainer')
 
 @section('content')
-  <form method="POST" action="/trainers/{{$trainer->slug}}" enctype="multipart/form-data">
-    @method('PUT')
-    @csrf
+  {!! Form::model($trainer,['route' => ['trainers.update', $trainer], 'method' => 'PUT', 'files' => true]) !!}
     <div class="form-goup">
-      <label for="">Nombre</label>
-      <input type="text" class="form-control" name="name" value="{{$trainer->name}}">
+      {!! Form::label('name', 'Nombre') !!}
+      {!! Form::text('name', null, ['class' => 'form-control']) !!}
+    </div>
+    <div class="form-goup">
+      {!! Form::label('slug', 'Slug') !!}
+      {!! Form::text('slug', null, ['class' => 'form-control']) !!}
     </div>
     <div class="form-goup mt-2">
-      <img src="/images/{{$trainer->avatar}}" alt="" style="height:100px; width:100px; background-color: #efefef;"><br>
-      <label for="">Avatar</label>
-      <input type="file"  name="avatar">
+      {!! Form::label('avatar', 'Avatar') !!}
+      {!! Form::file('avatar', null) !!}
     </div>
     <div class="form-goup mt-2">
-      <label for="">Description</label>
-      <textarea class="form-control" name="descruption" id="" cols="30" rows="10">{{$trainer->descruption}}</textarea>
+      {!! Form::label('descruption', 'Descripcion') !!}
+      {!! Form::textarea('descruption', null, ['class' => 'form-control']) !!}
     </div>
-    <button type="submit" class="btn btn-primary btn-block mt-3">Guardar</button>
-  </form>
+    {!! Form::submit('Actualizar',['class' => 'btn btn-primary btn-block mt-3']) !!}
+  {!! Form::close() !!}
 @endsection
