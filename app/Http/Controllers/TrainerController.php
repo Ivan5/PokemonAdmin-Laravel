@@ -3,6 +3,7 @@
 namespace LaraDex\Http\Controllers;
 use LaraDex\Trainer;
 use Illuminate\Http\Request;
+use LaraDex\Http\Requests\StoreTrainerRequest;
 
 class TrainerController extends Controller
 {
@@ -33,14 +34,15 @@ class TrainerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTrainerRequest $request)
     {
+        $trainer = new Trainer();
+
         if($request->hasFile('avatar')){
             $file = $request->file('avatar');
             $name = time().$file->getClientOriginalName();
             $file->move(public_path().'/images/', $name);
         }
-        $trainer = new Trainer();
         $trainer->name = $request->input('name');
         $trainer->avatar = $name;
         $trainer->descruption = $request->input('descruption');
