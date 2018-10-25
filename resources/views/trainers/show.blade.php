@@ -7,5 +7,6 @@
   <div class="text-center">
       <h5>{{$trainer->name}}</h5>
       <p>{{$trainer->descruption}}</p>
+      <a href="/trainers/{{$trainer->slug}}/edit" class="btn btn-primary">Edit</a>
   </div>
 @endsection
