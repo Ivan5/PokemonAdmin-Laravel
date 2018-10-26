@@ -8,7 +8,7 @@ class Role extends Model
 {
     //
 
-    public function user(){
-        return $this->belongsToMany('App\User');
+    public function users(){
+        return $this->belongsToMany('LaraDex\User');
     }
 }
