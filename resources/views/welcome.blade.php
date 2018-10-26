@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>LaraDex</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -13,7 +13,11 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
+                background: #c5deea; /* Old browsers */
+background: -moz-linear-gradient(45deg, #c5deea 0%, #8abbd7 31%, #066dab 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(45deg, #c5deea 0%,#8abbd7 31%,#066dab 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(45deg, #c5deea 0%,#8abbd7 31%,#066dab 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c5deea', endColorstr='#066dab',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
                 color: #636b6f;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
@@ -57,6 +61,7 @@
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
+                color:#fff;
             }
 
             .m-b-md {
@@ -71,23 +76,15 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
+                        <a href="{{ route('login') }}" class="color">Login</a>
+                        <a href="{{ route('register') }}" class="color">Register</a>
                     @endauth
                 </div>
             @endif
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    LaraDex
                 </div>
             </div>
         </div>
