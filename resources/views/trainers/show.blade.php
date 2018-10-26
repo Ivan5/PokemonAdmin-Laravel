@@ -8,5 +8,8 @@
       <h5>{{$trainer->name}}</h5>
       <p>{{$trainer->descruption}}</p>
       <a href="/trainers/{{$trainer->slug}}/edit" class="btn btn-primary">Edit</a>
+      {!! Form::open(['route' => ['trainers.destroy', $trainer->slug], 'method' => 'DELETE']) !!}
+        {!!Form::submit('Delete', ['class' => 'btn btn-danger mt-2'])!!}
+      {!!Form::close()!!}
   </div>
 @endsection
