@@ -2,5 +2,5 @@
 
 @section('content')
   <h1>Holiii</h1>
-  <example-component></example-component>
+  <pokemons-component></pokemons-component>
 @endsection
