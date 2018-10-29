@@ -1,5 +1,6 @@
 <template>
     <div class="row">
+      <spinner v-show="loading"></spinner>
       <div class="col-sm" v-for="pokemon in pokemons" v-bind:key="pokemon.id">
        <div class="card mt-5 text-center" style="width: 18rem;">
           <img style="height:100px; width:100px; background-color: #efefef;" class="card-img-top rounded-circle mt-2 mx-auto d-block" src="/images/" alt="">
@@ -16,12 +17,17 @@
 export default {
   data(){
     return {
-      pokemons: []
+      pokemons: [],
+      loading: true
     }
   },
   mounted() {
-    axios.get('http://localhost:8000/pokemons')
-      .then(response => (this.pokemons = response.data))
+    axios
+      .get('http://localhost:8000/pokemons')
+      .then((response) => {
+        this.pokemons = response.data;
+        this.loading = false;
+      })
   }
 }
 </script>
