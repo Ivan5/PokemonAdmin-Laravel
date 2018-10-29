@@ -47868,8 +47868,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      pokemons: [{ id: 1, name: "Pikachu" }, { id: 2, name: "Squirtle" }, { id: 3, name: "Charizar" }]
+      pokemons: []
     };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get('http://localhost:8000/pokemons').then(function (response) {
+      return _this.pokemons = response.data;
+    });
   }
 });
 
